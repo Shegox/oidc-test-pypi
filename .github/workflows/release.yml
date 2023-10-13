@@ -12,6 +12,8 @@ on:
         - patch
         - minor
         - major
+permissions:
+  id-token: write
 
 jobs:
   release:
@@ -46,6 +48,4 @@ jobs:
       - name: Build release distribution
         run: python -m build .
       - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@v1.8.10
